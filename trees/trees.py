@@ -85,6 +85,21 @@ def postorderI(n: "Node") -> list["Node"]:
         else: ans.append(curr.val)
     return ans
 
+def postorderI2(n: "Node") -> list["Node"]:
+    prev, stack, ans = None, [n], []
+    first = True
+    while stack:
+        curr = stack.pop()
+        if not curr: continue
+        if first or (prev != curr and prev != curr.right):
+            stack.append(curr)
+            stack.append(curr.right)
+            stack.append(curr.left)
+        elif prev == curr or prev == curr.right:
+            ans.append(curr.val)
+        first = False
+        prev = curr
+    return ans
 
 class Node():
     def __init__(self, val: int, left: "Node" = None, right: "Node" = None):
@@ -107,3 +122,5 @@ print(f'preorder: {preorder(n)}')
 print(f'preorder (iter.): {preorderI(n)}')
 print(f'postorder: {postorder(n)}')
 print(f'postorder (iter.): {postorderI(n)}')
+print(f'postorder (iter. 2): {postorderI2(n)}')
+
