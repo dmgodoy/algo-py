@@ -14,7 +14,8 @@ def hasCycle(n: Node) -> bool:
             break
     
     if slow != fast: return None
-
+    
+    #floyd's algorithm
     start = n
     while start != slow:
         start = start.next
