@@ -13,6 +13,7 @@ class Query():
         for i in range(l, r + 1):
             sum += self.arr[i]
         return sum
+    
     def queryOptimized(self, l: int, r: int) -> int:
         sum = self.prefix[r]
         if l > 0:
