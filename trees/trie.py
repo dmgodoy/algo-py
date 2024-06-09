@@ -1,5 +1,3 @@
-
-
 class TrieNode():
     def __init__(self):
         self.children = {} # char -> TrieNode
@@ -31,13 +29,13 @@ class TrieNode():
         def dfs(node: TrieNode, l: list[str]):
             if node.isComplete:
                 ans.append(w + "".join(l))
-            for k in node.children:
+            for k,v in node.children.items():
                 l.append(k)
-                dfs(node.children[k], l)
+                dfs(v, l)
                 l.pop()
         dfs(node, [])
-        return ans        
-
+        return ans
+    
 root = TrieNode()
 root.insert("perro")
 root.insert("pero")
