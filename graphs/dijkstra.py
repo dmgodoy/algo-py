@@ -8,7 +8,6 @@ def dijkstra(n: int, edges: list[list[int]], start: int) -> dict:
     for src, dst, weight in edges:
         adj[src].append([dst, weight])
     
-    print(adj)
     shortest = {}
     minheap = [[0, start]]
     while minheap:
